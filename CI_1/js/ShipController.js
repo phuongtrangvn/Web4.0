@@ -34,34 +34,49 @@ class ShipController{
       this.sprite.body.velocity.x = 0;
     }
 
-    if(Nakama.keyboard.isDown(this.configs.fire) && this.timeSinceLastFire >= this.configs.cooldown){
-      this.fire();
+    if(Nakama.keyboard.isDown(this.configs.fire1) && this.timeSinceLastFire >= this.configs.cooldown){
+      this.fire1();
+      this.timeSinceLastFire = 0;
+    }
+    if(Nakama.keyboard.isDown(this.configs.fire2) && this.timeSinceLastFire >= this.configs.cooldown){
+      this.fire2();
       this.timeSinceLastFire = 0;
     }
   }
 
-  fire() {
+  fire1() {
     var bullet1 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType1.png');
-    bullet1.body.velocity.y = -Nakama.configs.BULLET_SPEED;
+    bullet1.bullet.body.velocity = new Phaser.Point(0, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
 
-    // var newBullet1 = Nakama.bulletGroup.create(
-    //   this.sprite.position.x,
-    //   this.sprite.position.y,
-    //   'assets',
-    //   'BulletType1.png'
-    // );
-    // newBullet1.anchor = new Phaser.Point(0.5, 0.5);
-    // // (1,-10) la toa do cua dinh? vecto
-    // newBullet1.body.velocity = new Phaser.Point(1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
-    //
-    // var newBullet2 = Nakama.bulletGroup.create(
-    //   this.sprite.position.x,
-    //   this.sprite.position.y,
-    //   'assets',
-    //   'BulletType1.png'
-    // );
-    // newBullet2.anchor = new Phaser.Point(0.5, 0.5);
-    // newBullet2.body.velocity = new Phaser.Point(-1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+    var bullet2 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType1.png');
+    bullet2.bullet.body.velocity = new Phaser.Point(-1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+
+    var bullet3 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType1.png');
+    bullet3.bullet.body.velocity = new Phaser.Point(1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+
+    var bullet4 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType1.png');
+    bullet4.bullet.body.velocity = new Phaser.Point(-2, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+
+    var bullet5 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType1.png');
+    bullet5.bullet.body.velocity = new Phaser.Point(2, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+
+  }
+
+  fire2() {
+    var bullet1 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType2.png');
+    bullet1.bullet.body.velocity = new Phaser.Point(0, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+
+    var bullet2 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType2.png');
+    bullet2.bullet.body.velocity = new Phaser.Point(-1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+
+    var bullet3 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType2.png');
+    bullet3.bullet.body.velocity = new Phaser.Point(1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+
+    var bullet4 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType2.png');
+    bullet4.bullet.body.velocity = new Phaser.Point(-2, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+
+    var bullet5 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType2.png');
+    bullet5.bullet.body.velocity = new Phaser.Point(2, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
 
   }
 }
