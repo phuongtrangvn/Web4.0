@@ -41,34 +41,29 @@ class ShipController{
   }
 
   fire() {
-    var newBullet = Nakama.bulletGroup.create(
-      this.sprite.position.x,
-      this.sprite.position.y,
-      'assets',
-      'BulletType1.png'
-    );
-    newBullet.anchor = new Phaser.Point(0.5, 0.5);
+    var bullet1 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType1.png');
+    //Nakama.BulletController.push(bullet1);
     //= new Phaser.Point(0, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
-    newBullet.body.velocity.y = -Nakama.configs.BULLET_SPEED;
+    bullet1.body.velocity.y = -Nakama.configs.BULLET_SPEED;
 
-    var newBullet1 = Nakama.bulletGroup.create(
-      this.sprite.position.x,
-      this.sprite.position.y,
-      'assets',
-      'BulletType1.png'
-    );
-    newBullet1.anchor = new Phaser.Point(0.5, 0.5);
-    // (1,-10) la toa do cua dinh? vecto
-    newBullet1.body.velocity = new Phaser.Point(1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
-
-    var newBullet2 = Nakama.bulletGroup.create(
-      this.sprite.position.x,
-      this.sprite.position.y,
-      'assets',
-      'BulletType1.png'
-    );
-    newBullet2.anchor = new Phaser.Point(0.5, 0.5);
-    newBullet2.body.velocity = new Phaser.Point(-1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+    // var newBullet1 = Nakama.bulletGroup.create(
+    //   this.sprite.position.x,
+    //   this.sprite.position.y,
+    //   'assets',
+    //   'BulletType1.png'
+    // );
+    // newBullet1.anchor = new Phaser.Point(0.5, 0.5);
+    // // (1,-10) la toa do cua dinh? vecto
+    // newBullet1.body.velocity = new Phaser.Point(1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+    //
+    // var newBullet2 = Nakama.bulletGroup.create(
+    //   this.sprite.position.x,
+    //   this.sprite.position.y,
+    //   'assets',
+    //   'BulletType1.png'
+    // );
+    // newBullet2.anchor = new Phaser.Point(0.5, 0.5);
+    // newBullet2.body.velocity = new Phaser.Point(-1, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
 
   }
 }
