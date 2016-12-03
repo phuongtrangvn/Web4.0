@@ -41,9 +41,9 @@ class ShipController{
   }
 
   fire() {
+    var bulletList = [];
     var bullet1 = new BulletController(this.sprite.position.x, this.sprite.position.y, 'BulletType1.png');
-    //Nakama.BulletController.push(bullet1);
-    //= new Phaser.Point(0, -10).setMagnitude(Nakama.configs.BULLET_SPEED);
+    Nakama.bulletList.push(bullet1);
     bullet1.body.velocity.y = -Nakama.configs.BULLET_SPEED;
 
     // var newBullet1 = Nakama.bulletGroup.create(
